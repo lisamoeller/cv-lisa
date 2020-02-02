@@ -428,5 +428,8 @@ h2 .h2line {
 #footer .content {
   margin-top: 0;
 }
+#footer .content a {
+  margin-right: 2rem;
+}
 
 /*# sourceMappingURL=style.css.map */
