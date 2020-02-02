@@ -1,0 +1,16 @@
+{
+  "name": "cv-lisa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server",
+    "start-sass": "sass style.scss style.css --watch" 
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "sass": "^1.25.1-test.1"
+  }
+}
