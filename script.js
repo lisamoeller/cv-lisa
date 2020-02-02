@@ -1,9 +1,10 @@
-const header = document.querySelector("#header");
+const header = document.querySelector("#fullScreenHeader");
 let scrollUp = false;
 const iam = document.querySelector("#iam");
 let iamHeight;
 const chips = document.querySelector('.chip-text');
 let chipsHeight;
+const windowHeight = window.innerHeight;
 
 
 document.body.style.paddingTop = document.body.style.paddingTop + header.offsetHeight + "px";
@@ -12,8 +13,7 @@ function scaleHeader() {
 
 const headerHeight = header.offsetHeight;
   const headerContentHeight = iamHeight + chipsHeight;
-  const smallHeader = document.querySelector('#header-nav');
-  const windowHeight = window.innerHeight;
+  const smallHeader = document.querySelector('#smallHeader');
 
   if (window.scrollY <= windowHeight) { //big header is still visible
     smallHeader.style.display = "none"; //hide small header as long as big header is visible
@@ -23,7 +23,6 @@ const headerHeight = header.offsetHeight;
 
     if ((headerContentHeight*2 >= headerHeight) && !chips.classList.contains("fadeOut") && !scrollUp){
     // && !scrollUp && !chips.classList.contains("fadeOut")) {
-      console.log(headerContentHeight);
       chips.classList.add("fadeOut");
       
       function hideChips(){
@@ -44,7 +43,6 @@ const headerHeight = header.offsetHeight;
 
 
     if (headerHeight >= headerContentHeight*2 && scrollUp) {
-      console.log("hch >", headerContentHeight*2);
       chips.classList.remove("fadeOut");
     }
   } else {
@@ -62,7 +60,51 @@ window.addEventListener('scroll', () => {
   this.oldScroll = this.scrollY;
 });
 
+window.addEventListener('scroll', () => {
+  console.log(document.querySelector("#smallHeader").style.display == "flex");
+  if(document.querySelector("#smallHeader").style.display == "flex"){
+    activeNavi();
+  }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   iamHeight = iam.offsetHeight;
   chipsHeight = chips.offsetHeight;
 });
+
+function changeActive(element){
+  document.querySelector(".navi .active").classList.remove("active");
+  element.classList.add("active");  
+}
+
+function activeNavi() {
+
+  const limitToShowPersonal = document.querySelector("#personalBox").offsetTop;
+  const limitToShowResumee = document.querySelector("#workBox").offsetTop;
+  const limitToShowQuali = document.querySelector("#qualiBox").offsetTop;
+  const limitToShowWork = document.querySelector("#exampleBox").offsetTop;
+  const limitToShowContact = document.querySelector("#contactBox").offsetTop;
+
+  const limitPlus = windowHeight/5;
+
+  if(this.scrollY <= limitToShowPersonal + limitPlus){
+    console.log("showAbout");
+    changeActive(document.querySelector(".navi a[href='#about']"));
+  }
+  else if(this.scrollY > limitToShowPersonal + limitPlus && this.scrollY <= limitToShowResumee + limitPlus){
+    console.log("show resumee");    
+    changeActive(document.querySelector(".navi a[href='#resumee']"));
+  }
+  else if(this.scrollY > limitToShowResumee + limitPlus && this.scrollY <= limitToShowQuali + limitPlus){
+    console.log("show quali");    
+    changeActive(document.querySelector(".navi a[href='#quali']"));
+  }
+  else if(this.scrollY > limitToShowQuali + limitPlus && this.scrollY <= limitToShowWork + limitPlus){
+    console.log("show work");    
+    changeActive(document.querySelector(".navi a[href='#examples']"));
+  }
+  else if(this.scrollY + windowHeight <= limitToShowContact) 
+  {
+    changeActive(document.querySelector(".navi a[href='#contact']"));
+  }
+}

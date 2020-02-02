@@ -1,3 +1,13 @@
+html {
+  scroll-behavior: smooth;
+}
+
+a.target {
+  position: absolute;
+  left: 0;
+  top: -100px;
+}
+
 .btn {
   text-align: center;
   text-transform: uppercase;
@@ -5,9 +15,13 @@
   max-width: 200px;
   margin: 1rem 0;
   padding: 0.5rem 1rem;
-  border: 1px solid;
-  border-color: #217ec2;
-  color: #217ec2;
+  border: 2px solid #00A393;
+  color: #00A393;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .workContent {
@@ -27,7 +41,7 @@
   margin-bottom: 0.3rem;
   font-weight: 400;
 }
-.workContent span:nth-of-type(3) {
+.workContent span:last-of-type {
   font-size: 0.9rem;
 }
 
@@ -35,7 +49,7 @@ body {
   margin: 0;
   font-family: "Roboto", sans-serif;
   padding-top: 1px;
-  padding-bottom: 5rem;
+  color: #000033;
 }
 body * {
   box-sizing: border-box;
@@ -43,16 +57,15 @@ body * {
 
 .header {
   background: #00A393;
+  background: linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
   background: -moz-linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
   background: -webkit-linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
-  background: linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
   width: 100%;
   position: fixed;
   top: 0;
   z-index: 100;
 }
-
-#header {
+.header#fullScreenHeader {
   height: 100vh;
   padding: 0 2rem;
   display: flex;
@@ -61,7 +74,7 @@ body * {
   justify-content: center;
   top: 0;
 }
-#header #iam {
+.header#fullScreenHeader #iam {
   position: relative;
   text-transform: uppercase;
   font-weight: bold;
@@ -74,7 +87,7 @@ body * {
   margin: 2rem auto 1rem;
   transform-origin: 0%;
 }
-#header .chip-text {
+.header#fullScreenHeader .chip-text {
   display: flex;
   position: relative;
   transition: opacity 0.2s;
@@ -83,14 +96,14 @@ body * {
   margin: 0 auto;
   opacity: 0;
 }
-#header .chip-text.fadeOut {
+.header#fullScreenHeader .chip-text.fadeOut {
   animation: fadeOut 0.2s forwards;
 }
-#header .chip-text:not(.fadeOut) {
+.header#fullScreenHeader .chip-text:not(.fadeOut) {
   opacity: 1;
   animation: appear 0.5s forwards;
 }
-#header .chip-text span {
+.header#fullScreenHeader .chip-text span {
   margin: 0 0.3rem;
   opacity: 0.7;
   background: #ffffff;
@@ -100,72 +113,112 @@ body * {
   border-radius: 10px;
   transition: background-color 1s 0.5s;
 }
-
-#header-nav {
-  padding: 1rem 2rem;
+.header#smallHeader {
+  padding: 1.5rem 2rem 1rem;
   color: #ffffff;
-  font-size: 2rem;
-  font-weight: bold;
   display: none;
-  align-items: center;
+  align-items: flex-end;
   animation: fadeIn 0.7s;
+}
+.header#smallHeader span, .header#smallHeader .navi {
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 0 0 0 2rem;
+  display: flex;
+  align-items: flex-end;
+}
+.header#smallHeader span a, .header#smallHeader .navi a {
+  margin: 0 1rem 0 0;
+  transition: all 0.3s;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 0.2rem;
+}
+.header#smallHeader span a.active, .header#smallHeader span a:hover, .header#smallHeader .navi a.active, .header#smallHeader .navi a:hover {
+  border-bottom-color: #ffffff;
+}
+.header#smallHeader > span {
+  font-size: 2rem;
+  font-weight: 400;
+  padding-bottom: 0.2rem;
 }
 
 h1 {
   font-size: 3rem;
-  background: -webkit-linear-gradient(30deg, #00A393, #5C00C5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin: 5rem 0 2rem;
+  margin: 3rem 0 2rem;
+  color: #000033;
+  font-weight: 400;
+  width: 100%;
 }
 
 h2 {
   font-size: 2rem;
   font-weight: 400;
-  color: #000033;
+  background: linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin: 0 0 1rem;
 }
 h2 .h2line {
-  width: 60px;
-  height: 8px;
-  background: #000033;
+  width: 40px;
+  height: 5px;
+  background: #00A393;
   position: absolute;
-  margin-left: -65px;
-  margin-top: calc(1rem);
+  margin-left: -45px;
+  margin-top: 1rem;
 }
 
 .content {
   width: 100%;
   max-width: 1400px;
-  min-height: 50vh;
   padding: 0 2rem;
-  margin: 10rem auto;
-  display: grid;
+  margin: 10rem auto 0;
 }
-.content .personalBox {
-  margin-top: rem;
+.content .contentBox {
+  width: 100%;
+  position: relative;
+}
+.content #personalBox {
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
-.content .personalBox > img {
+.content #personalBox > img {
   margin-right: 2rem;
-  max-width: 200px;
   border-radius: 50%;
-  border: 7px solid #217ec2;
+  border: 7px solid #00A393;
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
 }
-.content .personalBox span {
+.content #personalBox span {
   font-size: 1.3rem;
   font-weight: 300;
 }
-.content .personalBox .socialBox {
+.content #personalBox .socialBox {
   margin: 1rem 0;
   width: 100%;
   display: flex;
 }
-.content .personalBox .socialBox img {
+.content #personalBox .socialBox img {
   max-height: 30px;
   margin: 0 1rem 0 0;
+}
+.content #contactBox {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.content #contactBox .contactWrapper {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 3rem 0 0;
+}
+.content #contactBox img {
+  max-height: 100px;
+  margin-bottom: 1rem;
 }
 .content .workGrid {
   display: grid;
@@ -246,7 +299,7 @@ h2 .h2line {
 .content .workExamples .projectBox .imgWrapper {
   width: 100%;
   height: 10rem;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   border-bottom: 4px solid darkcyan;
 }
@@ -276,61 +329,61 @@ h2 .h2line {
   grid-column-gap: 2rem;
   grid-template-columns: 1fr 1fr;
 }
-.content .qualiWrapper .qualiBox {
+.content .qualiWrapper .scaleBox {
   display: flex;
   align-items: center;
   margin: 0.5rem 0;
 }
-.content .qualiWrapper .qualiBox .title {
+.content .qualiWrapper .scaleBox .title {
   font-family: "Roboto";
   margin-left: 1rem;
 }
-.content .qualiWrapper .qualiBox .title.infoTitle {
+.content .qualiWrapper .scaleBox .title.infoTitle {
   color: darkgrey;
   font-size: 1rem;
 }
-.content .qualiWrapper .qualiBox .title:not(.infoTitle) {
+.content .qualiWrapper .scaleBox .title:not(.infoTitle) {
   font-size: 1.4rem;
   color: #000034;
 }
-.content .qualiWrapper .qualiBox .title.bold {
+.content .qualiWrapper .scaleBox .title.bold {
   font-weight: 500;
 }
-.content .qualiWrapper .qualiBox .title:not(.bold) {
+.content .qualiWrapper .scaleBox .title:not(.bold) {
   font-weight: 300;
 }
-.content .qualiWrapper .qualiBox .scale {
+.content .qualiWrapper .scaleBox .scale {
   display: flex;
 }
-.content .qualiWrapper .qualiBox .scale span {
+.content .qualiWrapper .scaleBox .scale span {
   width: 20px;
   height: 20px;
   border-radius: 50%;
   margin: 2px;
   box-sizing: border-box;
 }
-.content .qualiWrapper .qualiBox .scale span.info {
+.content .qualiWrapper .scaleBox .scale span.info {
   background: lightgray;
 }
-.content .qualiWrapper .qualiBox .scale span.colored {
+.content .qualiWrapper .scaleBox .scale span.colored {
   background: #4ac1a2;
 }
-.content .qualiWrapper .qualiBox .scale span.colored:nth-of-type(4) {
+.content .qualiWrapper .scaleBox .scale span.colored:nth-of-type(4) {
   background: linear-gradient(#4ac1a2, #3eadac);
 }
-.content .qualiWrapper .qualiBox .scale span.colored:nth-of-type(3) {
+.content .qualiWrapper .scaleBox .scale span.colored:nth-of-type(3) {
   background: linear-gradient(#3eadac, #2f95b7);
 }
-.content .qualiWrapper .qualiBox .scale span.colored:nth-of-type(2) {
+.content .qualiWrapper .scaleBox .scale span.colored:nth-of-type(2) {
   background: linear-gradient(#2f95b7, #217ec2);
 }
-.content .qualiWrapper .qualiBox .scale span.colored:nth-of-type(1) {
+.content .qualiWrapper .scaleBox .scale span.colored:nth-of-type(1) {
   background: linear-gradient(#217ec2, #1468cc);
 }
-.content .qualiWrapper .qualiBox .scale span:not(.colored) {
+.content .qualiWrapper .scaleBox .scale span:not(.colored) {
   border: 2px solid lightgray;
 }
-.content .qualiWrapper .qualiBox span {
+.content .qualiWrapper .scaleBox span {
   font-size: 2rem;
   color: #000033;
   font-weight: bold;
@@ -361,6 +414,19 @@ h2 .h2line {
   100% {
     opacity: 1;
   }
+}
+#footer {
+  background: #00A393;
+  background: linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
+  background: -moz-linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
+  background: -webkit-linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
+  width: 100%;
+  padding: 2rem 0;
+  color: #ffffff;
+  margin: 5rem 0 0;
+}
+#footer .content {
+  margin-top: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

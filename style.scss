@@ -1,6 +1,18 @@
 
 $color-light: #ffffff;
 $color-dark: #000033;
+$mainGradient: linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
+$primeColor: #00A393;
+
+html{
+  scroll-behavior: smooth;
+}
+
+a.target{
+  position: absolute;
+  left: 0;
+  top: -100px;
+}
 
 .btn{
   text-align: center;
@@ -9,9 +21,13 @@ $color-dark: #000033;
   max-width: 200px;
   margin: 1rem 0;
   padding: .5rem 1rem;
-  border: 1px solid;
-  border-color: rgb(33,126,194);
-  color: rgb(33,126,194);
+  border: 2px solid $primeColor;
+  color: $primeColor
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
 }
 
 .workContent{
@@ -32,19 +48,17 @@ $color-dark: #000033;
     margin-bottom: .3rem;
     font-weight: 400;
   }
-  span:nth-of-type(3){
+  span:last-of-type{
     font-size: .9rem;
   }
-  
-  
 }
 
 body{
     margin: 0;
     font-family: 'Roboto', sans-serif;
     padding-top: 1px;
-    padding-bottom: 5rem;
-
+    color: $color-dark;
+    
     *{
         box-sizing: border-box;
     }
@@ -52,126 +66,158 @@ body{
 
 .header{
     background: #00A393;
+    background: $mainGradient;
     background: -moz-linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
     background: -webkit-linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
-    background: linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
     width: 100%;
     position: fixed;
     top: 0;
     z-index: 100;
-}
 
-#header{
-    height: 100vh;
-    padding: 0 2rem;
-    display:flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    top: 0;
+    &#fullScreenHeader{
+      height: 100vh;
+      padding: 0 2rem;
+      display:flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      top: 0;
+  
+      #iam{
+          position: relative;
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 5rem;
+          animation: appear 2s forwards;
+          line-height: 1.2;
+          color: $color-light;
+          width: 100%;
+          max-width: 1400px;
+          margin: 2rem auto 1rem;
+          transform-origin: 0%;
+      }
+      
+      .chip-text{
+          display: flex;
+          position: relative;
+          transition: opacity .2s;
+          width: 100%;
+          max-width: 1400px;
+          margin: 0 auto;
+          opacity: 0;
+  
+          &.fadeOut{
+            animation: fadeOut .2s forwards;
+          }
+  
+          &:not(.fadeOut){
+            opacity: 1;
+            animation: appear .5s forwards;
+          }
+      
+          span{
+              margin: 0 .3rem;
+              opacity: 0.7;
+              background: $color-light;
+              color: $color-dark;
+              font-weight: 800;
+              padding: .5rem 1rem;
+              border-radius: 10px;
+              transition: background-color 1s .5s;
+          }
+      }
+  }
 
-    #iam{
-        position: relative;
-        text-transform: uppercase;
-        font-weight: bold;
-        font-size: 5rem;
-        animation: appear 2s forwards;
-        line-height: 1.2;
-        color: $color-light;
-        width: 100%;
-        max-width: 1400px;
-        margin: 2rem auto 1rem;
-        transform-origin: 0%;
-    }
-    
-    .chip-text{
-        display: flex;
-        position: relative;
-        transition: opacity .2s;
-        width: 100%;
-        max-width: 1400px;
-        margin: 0 auto;
-        opacity: 0;
-
-        &.fadeOut{
-          animation: fadeOut .2s forwards;
-        }
-
-        &:not(.fadeOut){
-          opacity: 1;
-          animation: appear .5s forwards;
-        }
-    
-        span{
-            margin: 0 .3rem;
-            opacity: 0.7;
-            background: $color-light;
-            color: $color-dark;
-            font-weight: 800;
-            padding: .5rem 1rem;
-            border-radius: 10px;
-            transition: background-color 1s .5s;
-        }
-    }
-}
-
-#header-nav{
-    padding: 1rem 2rem;
+  &#smallHeader{
+    padding: 1.5rem 2rem 1rem;
     color: $color-light;
-    font-size: 2rem;
-    font-weight: bold;
     display: none;
-    align-items: center;
+    align-items: flex-end;
     animation: fadeIn .7s;
+
+    span, .navi{
+      font-size: 1rem;
+      font-weight: 300;
+      margin: 0 0 0 2rem;
+      display: flex;
+      align-items: flex-end;
+
+      a{
+        margin: 0 1rem 0 0;
+        transition: all .3s;
+        border-bottom: 2px solid transparent;
+        padding-bottom: .2rem;
+
+        &.active, &:hover{
+          border-bottom-color: $color-light;
+        }
+      }
+    }
+
+    >span{
+      font-size: 2rem;
+      font-weight: 400;
+      padding-bottom: .2rem;
+    }
+}
+  
 }
 
 h1{
     font-size: 3rem;
-    background: -webkit-linear-gradient(30deg, #00A393, #5C00C5);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin: 5rem 0 2rem;
+    margin: 3rem 0 2rem;
+    color: $color-dark;
+    font-weight: 400;
+    width: 100%;
 }
 
 h2{
     font-size: 2rem;
     font-weight: 400;
-    color: $color-dark;
+    background: $mainGradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin: 0 0 1rem;
 
     .h2line{
-      width: 60px;
-      height: 8px;
-      background: $color-dark;
+      width: 40px;
+      height: 5px;
+      background: $primeColor;
       position: absolute;
-      margin-left: -65px;
-      margin-top: calc(1rem);
+      margin-left: -45px;
+      margin-top: 1rem;
     }
 }
 
 .content{
     width: 100%;
     max-width: 1400px;
-    min-height: 50vh;
     padding: 0 2rem;
-    margin: 10rem auto;
-    display: grid;
+    margin: 10rem auto 0;
 
-    .personalBox{
-      margin-top: rem;
+    .contentBox{
+      width: 100%;
+      position: relative;
+    }
+
+    #personalBox{
       display:flex;
       align-items: center;
       justify-content: flex-start;
+
       >img{
         margin-right: 2rem;
-        max-width: 200px;
         border-radius: 50%;
-        border: 7px solid rgb(33,126,194);
+        border: 7px solid $primeColor;
+        object-fit: cover;
+        width: 200px;
+        height: 200px;
       }
       span{
         font-size: 1.3rem;
         font-weight: 300;
       }
+
       .socialBox{
         margin: 1rem 0;
         width: 100%;
@@ -180,6 +226,27 @@ h2{
           max-height: 30px;
           margin: 0 1rem 0 0;
         }
+      }
+    }
+
+    #contactBox{
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      
+
+      .contactWrapper{
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 3rem 0 0;
+      }
+
+      img{
+        max-height: 100px;
+        margin-bottom: 1rem; 
       }
     }
 
@@ -259,6 +326,8 @@ h2{
         flex-wrap: wrap;
         font-family: 'Roboto';
         color: #333;
+
+        
         
         .projectBox{
           border-radius: 5px;
@@ -275,13 +344,15 @@ h2{
           .imgWrapper{
             width: 100%;
             height: 10rem;
-            background-size: cover;
+            background-size: contain;
             background-position: center;
             border-bottom: 4px solid darkcyan;
           }
           
           .exampleContent{
             margin: 1rem;
+
+            
             
             .exampleTitle{
               font-size: 1.3rem;
@@ -314,7 +385,7 @@ h2{
         grid-template-columns: 1fr 1fr;
 
 
-        .qualiBox{
+        .scaleBox{
             display: flex;
             align-items: center;
             margin: .5rem 0;
@@ -415,3 +486,18 @@ h2{
     opacity: 1;
 }
 }
+
+#footer{
+  background: #00A393;
+  background: $mainGradient;
+  background: -moz-linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
+  background: -webkit-linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
+  width: 100%;
+  padding: 2rem 0;
+  color: $color-light;
+  margin: 5rem 0 0;
+
+    .content{
+      margin-top: 0;
+    }
+  }
