@@ -15,8 +15,8 @@ a.target {
   max-width: 200px;
   margin: 1rem 0;
   padding: 0.5rem 1rem;
-  border: 2px solid #00A393;
-  color: #00A393;
+  border: 2px solid #007599;
+  color: #007599;
 }
 
 a {
@@ -57,13 +57,20 @@ body * {
 
 .header {
   background: #00A393;
-  background: linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
-  background: -moz-linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
-  background: -webkit-linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
   width: 100%;
   position: fixed;
   top: 0;
   z-index: 100;
+}
+.header #titleImg {
+  width: calc(2rem + 100%);
+  height: 100%;
+  position: absolute;
+  left: -2rem;
+  background: linear-gradient(45deg, #007599 0%, #009687 100%);
+  opacity: 0.45;
+  z-index: 0;
+  animation: showHeaderImage 3s;
 }
 .header#fullScreenHeader {
   height: 100vh;
@@ -73,6 +80,9 @@ body * {
   align-items: flex-start;
   justify-content: center;
   top: 0;
+  background-image: url("./assets/img/titleImg.jpg");
+  background-size: cover;
+  background-position: center;
 }
 .header#fullScreenHeader #iam {
   position: relative;
@@ -95,6 +105,7 @@ body * {
   max-width: 1400px;
   margin: 0 auto;
   opacity: 0;
+  flex-wrap: wrap;
 }
 .header#fullScreenHeader .chip-text.fadeOut {
   animation: fadeOut 0.2s forwards;
@@ -104,7 +115,7 @@ body * {
   animation: appear 0.5s forwards;
 }
 .header#fullScreenHeader .chip-text span {
-  margin: 0 0.3rem;
+  margin: 0 0.3rem 0.5rem 0;
   opacity: 0.7;
   background: #ffffff;
   color: #000033;
@@ -119,13 +130,17 @@ body * {
   display: none;
   align-items: flex-end;
   animation: fadeIn 0.7s;
+  background: linear-gradient(45deg, #007599 0%, #009687 100%);
+}
+.header#smallHeader #titleImg {
+  height: calc(100% + 2rem);
 }
 .header#smallHeader span, .header#smallHeader .navi {
   font-size: 1rem;
-  font-weight: 300;
-  margin: 0 0 0 2rem;
+  font-weight: 400;
   display: flex;
   align-items: flex-end;
+  z-index: 1;
 }
 .header#smallHeader span a, .header#smallHeader .navi a {
   margin: 0 1rem 0 0;
@@ -140,6 +155,7 @@ body * {
   font-size: 2rem;
   font-weight: 400;
   padding-bottom: 0.2rem;
+  margin-right: 2rem;
 }
 
 h1 {
@@ -153,7 +169,7 @@ h1 {
 h2 {
   font-size: 2rem;
   font-weight: 400;
-  background: linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
+  background: linear-gradient(45deg, #007599 0%, #009687 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0 0 1rem;
@@ -161,7 +177,7 @@ h2 {
 h2 .h2line {
   width: 40px;
   height: 5px;
-  background: #00A393;
+  background: #007599;
   position: absolute;
   margin-left: -45px;
   margin-top: 1rem;
@@ -171,7 +187,7 @@ h2 .h2line {
   width: 100%;
   max-width: 1400px;
   padding: 0 2rem;
-  margin: 10rem auto 0;
+  margin: 6rem auto 0;
 }
 .content .contentBox {
   width: 100%;
@@ -185,7 +201,7 @@ h2 .h2line {
 .content #personalBox > img {
   margin-right: 2rem;
   border-radius: 50%;
-  border: 7px solid #00A393;
+  border: 7px solid #007599;
   object-fit: cover;
   width: 200px;
   height: 200px;
@@ -207,17 +223,16 @@ h2 .h2line {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-around;
 }
 .content #contactBox .contactWrapper {
-  width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 3rem 0 0;
+  margin: 0 3rem 2rem 0;
 }
 .content #contactBox img {
-  max-height: 100px;
+  max-height: 65px;
   margin-bottom: 1rem;
 }
 .content .workGrid {
@@ -415,21 +430,72 @@ h2 .h2line {
     opacity: 1;
   }
 }
+@keyframes showHeaderImage {
+  0% {
+    opacity: 1;
+  }
+}
 #footer {
   background: #00A393;
-  background: linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
-  background: -moz-linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
-  background: -webkit-linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
+  background: linear-gradient(45deg, #007599 0%, #009687 100%);
+  /* background: -moz-linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
+   background: -webkit-linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
+  */
   width: 100%;
   padding: 2rem 0;
   color: #ffffff;
-  margin: 5rem 0 0;
+  margin: 1rem 0 0;
 }
 #footer .content {
   margin-top: 0;
 }
 #footer .content a {
   margin-right: 2rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  .content .qualiWrapper {
+    grid-gap: 3rem;
+    grid-template-columns: 1fr;
+  }
+
+  .content .workExamples {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media only screen and (max-width: 750px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .content #personalBox {
+    flex-direction: column;
+    margin-right: 0;
+  }
+  .content #personalBox img {
+    margin-bottom: 2rem;
+  }
+
+  .header#smallHeader > span {
+    display: none;
+  }
+
+  .content .workExamples {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .header#fullScreenHeader #iam {
+    font-size: 4rem;
+  }
+
+  .content .workExamples {
+    grid-template-columns: 1fr;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

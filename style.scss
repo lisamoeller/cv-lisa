@@ -1,8 +1,8 @@
 
 $color-light: #ffffff;
 $color-dark: #000033;
-$mainGradient: linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
-$primeColor: #00A393;
+$mainGradient: linear-gradient(45deg, rgb(0, 117, 153) 0%, rgb(0, 150, 135) 100%);
+$primeColor: rgb(0, 117, 153);
 
 html{
   scroll-behavior: smooth;
@@ -66,13 +66,22 @@ body{
 
 .header{
     background: #00A393;
-    background: $mainGradient;
-    background: -moz-linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
-    background: -webkit-linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
     width: 100%;
     position: fixed;
     top: 0;
     z-index: 100;
+
+    #titleImg{
+      width: calc(2rem + 100%);
+      height: 100%;
+      position: absolute;
+      left: -2rem;
+      background: $mainGradient;
+      opacity: .45;
+      z-index: 0;
+
+      animation: showHeaderImage 3s;
+    }
 
     &#fullScreenHeader{
       height: 100vh;
@@ -82,6 +91,9 @@ body{
       align-items: flex-start;
       justify-content: center;
       top: 0;
+      background-image: url('./assets/img/titleImg.jpg');
+    background-size: cover;
+    background-position: center;
   
       #iam{
           position: relative;
@@ -105,6 +117,8 @@ body{
           max-width: 1400px;
           margin: 0 auto;
           opacity: 0;
+          flex-wrap: wrap;
+
   
           &.fadeOut{
             animation: fadeOut .2s forwards;
@@ -116,7 +130,7 @@ body{
           }
       
           span{
-              margin: 0 .3rem;
+              margin: 0 .3rem .5rem 0;
               opacity: 0.7;
               background: $color-light;
               color: $color-dark;
@@ -134,13 +148,20 @@ body{
     display: none;
     align-items: flex-end;
     animation: fadeIn .7s;
+    background: $mainGradient;
+
+
+    #titleImg{
+      height: calc(100% + 2rem);
+    }
 
     span, .navi{
       font-size: 1rem;
-      font-weight: 300;
-      margin: 0 0 0 2rem;
+      font-weight: 400;
       display: flex;
       align-items: flex-end;
+      z-index: 1;
+
 
       a{
         margin: 0 1rem 0 0;
@@ -158,6 +179,7 @@ body{
       font-size: 2rem;
       font-weight: 400;
       padding-bottom: .2rem;
+      margin-right: 2rem;
     }
 }
   
@@ -193,7 +215,7 @@ h2{
     width: 100%;
     max-width: 1400px;
     padding: 0 2rem;
-    margin: 10rem auto 0;
+    margin: 6rem auto 0;
 
     .contentBox{
       width: 100%;
@@ -233,19 +255,18 @@ h2{
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      justify-content: flex-start;
+      justify-content: space-around;
       
 
       .contactWrapper{
-        width: 300px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 0 3rem 0 0;
+        margin: 0 3rem 2rem 0;
       }
 
       img{
-        max-height: 100px;
+        max-height: 65px;
         margin-bottom: 1rem; 
       }
     }
@@ -487,15 +508,21 @@ h2{
 }
 }
 
+@keyframes showHeaderImage{
+  0%{
+    opacity: 1;
+}
+}
+
 #footer{
   background: #00A393;
   background: $mainGradient;
-  background: -moz-linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
+ /* background: -moz-linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
   background: -webkit-linear-gradient(45deg, #00A393 0%, #007DA4 22%, #5C00C5 100%);
-  width: 100%;
+ */ width: 100%;
   padding: 2rem 0;
   color: $color-light;
-  margin: 5rem 0 0;
+  margin: 1rem 0 0;
 
     .content{
       margin-top: 0;
@@ -503,5 +530,50 @@ h2{
       a{
         margin-right: 2rem;
       }
+    }
+  }
+
+  @media only screen and (max-width: 1000px){
+    .content .qualiWrapper { 
+        grid-gap: 3rem;
+        grid-template-columns: 1fr;
+      }
+
+      .content .workExamples{
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+  }
+
+  @media only screen and (max-width: 750px){
+    h1{
+      font-size: 2rem;
+    }
+    h2{
+      font-size: 1.5rem;
+    }
+    .content #personalBox{
+      flex-direction: column;
+      margin-right: 0;
+
+      img{
+        margin-bottom: 2rem;
+      }
+    }
+
+    .header#smallHeader >span{
+      display:none
+    }
+
+    .content .workExamples{
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media only screen and (max-width: 500px){
+    .header#fullScreenHeader #iam{
+      font-size: 4rem;
+    }
+    .content .workExamples{
+      grid-template-columns: 1fr;
     }
   }
