@@ -452,6 +452,9 @@ h2 .h2line {
 #footer .content a {
   margin-right: 2rem;
 }
+#footer .content span {
+  float: right;
+}
 
 @media only screen and (max-width: 1000px) {
   .content .qualiWrapper {
