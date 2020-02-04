@@ -26,13 +26,15 @@
     </div>
   </section>
   <div id="smallHeader" class="header">
-    <span>Lisa Möller</span>
-    <div class="navi">
-      <a onclick="changeActive(this)" href="#about" class="active">About</a>
-      <a onclick="changeActive(this)" href="#resumee">Resumee</a>
-      <a onclick="changeActive(this)" href="#quali">Qualifications</a>
-      <a onclick="changeActive(this)" href="#examples">Work Examples</a>
-      <a onclick="changeActive(this)" href="#contact">Contact</a>
+    <div class="naviWrapper">
+      <span class="logo">Lisa Möller</span>
+      <div class="navi">
+        <a onclick="changeActive(this)" href="#about" class="active">About</a>
+        <a onclick="changeActive(this)" href="#resumee">Resumee</a>
+        <a onclick="changeActive(this)" href="#quali">Qualifications</a>
+        <a onclick="changeActive(this)" href="#examples">Work Examples</a>
+        <a onclick="changeActive(this)" href="#contact">Contact</a>
+      </div>
     </div>
   </div>
 
@@ -40,7 +42,7 @@
     <div class="contentBox flex" id="personalBox">
       <a id="about" class="target"> </a>
 
-      <img src="profile_img.png">
+      <img src="./assets/img/profile_img.png">
       <div>
         <span>
           <strong>I am Lisa</strong> – frontend developer from Leipzig, Germany, with a passion for HTML, CSS and
@@ -136,134 +138,7 @@
     </div>
 
 
-    <!--
-    <h2>Work experience</h2>
-    <div class="workGrid">
-      <div id="line"></div>
-      <div class="workWrapper">
-        <div class="workBox">
-          <div class="bubble work">
-            <img src="https://image.flaticon.com/icons/svg/1822/1822948.svg">
-          </div>
-          <div class="workContent">
-            <span>UI/UX design | Frontend development | Graphical design</span>
-            <span>auto.de, Leipzig, Germany</span>
-            <span>May 2018 - March 2020</span>
-          </div>
-        </div>
-        <div class="workBox">
-          <div class="bubble eng small">
-            <img src="https://image.flaticon.com/icons/svg/1008/1008535.svg">
-          </div>
-          <div class="workContent">
-            <span>Award for outstanding master thesis</span>
-            <span>HTWK Leipzig, Germany</span>
-            <span>January 2019</span>
-          </div>
-        </div>
-        <div class="workBox">
-          <div class="bubble work small">
-            <img src="https://image.flaticon.com/icons/svg/1822/1822948.svg">
-          </div>
-          <div class="workContent">
-            <span>Master thesis</span>
-            <span>ST Sportservice GmbH Leipzig</span>
-            <span>April 2017 - January 2018</span>
-          </div>
-        </div>
-        <div class="workBox">
-          <div class="bubble eng small">
-            <img src="https://image.flaticon.com/icons/svg/1008/1008535.svg">
-          </div>
-          <div class="workContent">
-            <span>Deutschland-Stipendium</span>
-            <span>Studentship</span>
-            <span>2016 - 2017</span>
-          </div>
-        </div>
-        <div class="workBox">
-          <div class="bubble eng small">
-            <img src="https://image.flaticon.com/icons/svg/1008/1008535.svg">
-          </div>
-          <div class="workContent">
-            <span>Member of the study comission of Media Informatics</span>
-            <span>at HTWK Leipzig, Germany</span>
-            <span>2014 - 2016</span>
-          </div>
-        </div>
-        <div class="workBox">
-          <div></div>
-          <div class="bubble work">
-            <img src="https://image.flaticon.com/icons/svg/1822/1822948.svg">
-          </div>
-          <div class="workContent">
-            <span>Web development</span>
-            <span>Student trainee at Apinauten GmbH, Leipzig, Germany</span>
-            <span>April 2014 - April 2016</span>
-          </div>
-        </div>
-        <div class="workBox">
-          <div class="bubble study">
-            <img src="https://image.flaticon.com/icons/svg/1656/1656819.svg">
-          </div>
-          <div class="workContent">
-            <span>Master's programm Media informatics</span>
-            <span>at HTWK Leipzig University of Applied Science, Germany</span>
-            <span>2014 - 2018</span>
-          </div>
-        </div>
-        <div class="workBox">
-          <div class="bubble eng small">
-            <img src="https://image.flaticon.com/icons/svg/1008/1008535.svg">
-          </div>
-          <div class="workContent">
-            <span>Mentor for new students</span>
-            <span>at HTWK Leipzig, Germany</span>
-            <span>2014, 2015</span>
-          </div>
-        </div>
-        <div class="workBox">
-          <div class="bubble work small">
-            <img src="https://image.flaticon.com/icons/svg/1822/1822948.svg">
-          </div>
-          <div class="workContent">
-            <span>Bechelor thesis | Internship in marketing & web development</span>
-            <span>Apinauten GmbH, Leipzig, Germany</span>
-            <span>March 2014 - October 2014</span>
-          </div>
-        </div>
-        <div class="workBox">
-          <div class="bubble eng">
-            <img src="https://image.flaticon.com/icons/svg/1008/1008535.svg">
-          </div>
-          <div class="workContent">
-            <span>Consultant of public relations</span>
-            <span>at student council, HTWK Leipzig, Germany</span>
-            <span>2013 - 2016</span>
-          </div>
-        </div>
-        <div class="workBox">
-          <div class="bubble eng">
-            <img src="https://image.flaticon.com/icons/svg/1008/1008535.svg">
-          </div>
-          <div class="workContent">
-            <span>Spokesperson | Web administrator | Public Relations</span>
-            <span>Member of student representative council</span>
-            <span>2012 - 2016</span>
-          </div>
-        </div>
-        <div class="workBox">
-          <div class="bubble study">
-            <img src="https://image.flaticon.com/icons/svg/1656/1656819.svg">
-          </div>
-          <div class="workContent">
-            <span>Bachelor's programm Media informatics</span>
-            <span>at HTWK Leipzig University of Applied Science, Germany</span>
-            <span>2011 - 2014</span>
-          </div>
-        </div>
-      </div>
-    </div>-->
+    
 
     <div class="contentBox" id="qualiBox">
       <a id="quali" class="target"> </a>
@@ -476,6 +351,7 @@
 
       <h1>Work examples</h1>
       <div class="workExamples">
+        <a href="https://lisamoeller.github.io/flag-search/">
         <div class="projectBox">
           <div class="imgWrapper"
             style="background-image:url(https://gearhex.net/wp-content/uploads/2019/06/82409-636282992381780999-16x9.jpg)">
@@ -489,21 +365,23 @@
             </div>
           </div>
         </div>
+        </a>
+        <a href="https://lisamoeller.github.io/spanishNumbers/">
 
-        <div class="projectBox">
-          <div class="imgWrapper"
-            style="background-image:url(data:image/png;base64,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)">
-          </div>
-          <div class="exampleContent">
-            <span class="exampleTitle">Project: Spanish numbers</span>
-            <div class="exampleChips">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
+          <div class="projectBox">
+            <div class="imgWrapper"
+              style="background-image:url(data:image/png;base64,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)">
+            </div>
+            <div class="exampleContent">
+              <span class="exampleTitle">Project: Spanish numbers</span>
+              <div class="exampleChips">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
             </div>
           </div>
-        </div>
-
+        </a>
         <div class="projectBox">
           <div class="imgWrapper"
             style="background-image:url(https://99designs-start-attachments.imgix.net/alchemy-pictures/2016%2F03%2F02%2F04%2F14%2F45%2Fb3adc9bb-697b-49d2-b23d-f5b02d5b59ff%2FA-565860_SavaStoic.png?auto=format&ch=Width%2CDPR&w=250&h=250)">

@@ -61,7 +61,6 @@ window.addEventListener('scroll', () => {
 });
 
 window.addEventListener('scroll', () => {
-  console.log(document.querySelector("#smallHeader").style.display == "flex");
   if(document.querySelector("#smallHeader").style.display == "flex"){
     activeNavi();
   }
@@ -88,19 +87,15 @@ function activeNavi() {
   const limitPlus = windowHeight/5;
 
   if(this.scrollY <= limitToShowPersonal + limitPlus){
-    console.log("showAbout");
     changeActive(document.querySelector(".navi a[href='#about']"));
   }
   else if(this.scrollY > limitToShowPersonal + limitPlus && this.scrollY <= limitToShowResumee + limitPlus){
-    console.log("show resumee");    
     changeActive(document.querySelector(".navi a[href='#resumee']"));
   }
   else if(this.scrollY > limitToShowResumee + limitPlus && this.scrollY <= limitToShowQuali + limitPlus){
-    console.log("show quali");    
     changeActive(document.querySelector(".navi a[href='#quali']"));
   }
   else if(this.scrollY > limitToShowQuali + limitPlus && this.scrollY <= limitToShowWork + limitPlus){
-    console.log("show work");    
     changeActive(document.querySelector(".navi a[href='#examples']"));
   }
   else if(this.scrollY + windowHeight <= limitToShowContact) 

@@ -6,6 +6,7 @@ $primeColor: rgb(0, 117, 153);
 
 html{
   scroll-behavior: smooth;
+  font-size: 100%;
 }
 
 a.target{
@@ -146,10 +147,17 @@ body{
     padding: 1.5rem 2rem 1rem;
     color: $color-light;
     display: none;
-    align-items: flex-end;
+    
     animation: fadeIn .7s;
     background: $mainGradient;
 
+    .naviWrapper{
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-end;
+    }
 
     #titleImg{
       height: calc(100% + 2rem);
@@ -175,7 +183,7 @@ body{
       }
     }
 
-    >span{
+    .logo{
       font-size: 2rem;
       font-weight: 400;
       padding-bottom: .2rem;
@@ -342,7 +350,8 @@ h2{
         max-width: 1440px;
         margin: 0 auto;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        align-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         grid-gap: 1rem;
         flex-wrap: wrap;
         font-family: 'Roboto';
@@ -353,7 +362,7 @@ h2{
         .projectBox{
           border-radius: 5px;
           width: 100%;
-          max-width: 300px;
+         // max-width: 300px;
           border: 1px solid lightgray;
           transition: all .3s;
           cursor: pointer;
@@ -403,7 +412,7 @@ h2{
     .qualiWrapper{
         display: grid;
         grid-column-gap: 2rem;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
 
 
         .scaleBox{
@@ -537,23 +546,9 @@ h2{
     }
   }
 
-  @media only screen and (max-width: 1000px){
-    .content .qualiWrapper { 
-        grid-gap: 3rem;
-        grid-template-columns: 1fr;
-      }
-
-      .content .workExamples{
-        grid-template-columns: 1fr 1fr 1fr;
-      }
-  }
-
-  @media only screen and (max-width: 750px){
-    h1{
-      font-size: 2rem;
-    }
-    h2{
-      font-size: 1.5rem;
+  @media (max-width: 750px){
+    html{
+      font-size: 100%;
     }
     .content #personalBox{
       flex-direction: column;
@@ -564,12 +559,8 @@ h2{
       }
     }
 
-    .header#smallHeader >span{
+    .header#smallHeader .logo{
       display:none
-    }
-
-    .content .workExamples{
-      grid-template-columns: 1fr 1fr;
     }
   }
 
@@ -577,7 +568,15 @@ h2{
     .header#fullScreenHeader #iam{
       font-size: 4rem;
     }
-    .content .workExamples{
-      grid-template-columns: 1fr;
+  }
+
+  @media screen and (min-width: 320px) {
+    html {
+      font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+    }
+  }
+  @media screen and (min-width: 1000px) {
+    html {
+      font-size: 16px;
     }
   }
