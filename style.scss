@@ -91,7 +91,7 @@ body {
     align-items: flex-start;
     justify-content: center;
     top: 0;
-    background-image: url("./assets/img/titleImg.jpg");
+    background-image: url("./assets/img/titleImg.png");
     background-size: cover;
     background-position: center;
 
@@ -399,18 +399,27 @@ h2 {
 
         .exampleChips {
           display: flex;
-          margin: 1rem 0 0 0;
           flex-wrap: wrap;
 
-          span {
-            font-size: 1rem;
-            padding: 0.3rem;
-            margin: 0.2rem 0.4rem 0.2rem 0;
-            background: rgb(200, 230, 230);
-            border-radius: 5px;
+          span{
+            margin-left: 0;
           }
         }
       }
+    }
+  }
+
+  .exampleChips {
+    margin: 1rem 0 0 0;
+    display: flex;
+    align-items: center;
+
+    span {
+      font-size: 1rem;
+      padding: 0.3rem;
+      margin: 0.2rem 0.4rem;
+      background: rgb(200, 230, 230);
+      border-radius: 5px;
     }
   }
 
