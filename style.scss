@@ -401,7 +401,7 @@ h2 {
           display: flex;
           flex-wrap: wrap;
 
-          span{
+          span {
             margin-left: 0;
           }
         }
@@ -575,6 +575,34 @@ h2 {
 
   .header#smallHeader .logo {
     display: none;
+  }
+}
+
+.angularLogo {
+  width: 100%;
+  max-width: 1040px;
+  padding: 0 2rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: #eaeaea;
+  padding-bottom: 4rem;
+
+  .exampleWrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-row: 1fr;
+    grid-gap: 2rem;
+
+    img{
+      max-width: 300px;
+    }
+  }
+
+  img {
+    width: 400px;
+    max-width: 100%;
+    margin: 0 auto;
   }
 }
 
